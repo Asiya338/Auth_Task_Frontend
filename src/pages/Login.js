@@ -21,7 +21,7 @@ function Login({ goToRegister, onLoginSuccess }) {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Login</h2>
 
       <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />

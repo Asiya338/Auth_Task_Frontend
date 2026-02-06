@@ -72,83 +72,103 @@ function Dashboard({ onLogout }) {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Dashboard</h2>
-      <button onClick={onLogout}>Logout</button>
+    <div className="dashboard">
+      <div style={{ padding: "20px" }}>
+        <h2>Dashboard</h2>
+        <button className="btn-secondary" onClick={onLogout}>
+          Logout
+        </button>
 
-      <hr />
+        <hr />
 
-      {/* Create Task */}
-      <h3>Create Task</h3>
-      <input
-        placeholder="Task title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <br />
+        {/* Create Task */}
+        <h3>Create Task</h3>
+        <input
+          placeholder="Task title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <br />
 
-      <input
-        placeholder="Task description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <br />
+        <input
+          placeholder="Task description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <br />
 
-      <button onClick={createTask}>Add Task</button>
+        <button className="btn-primary" onClick={createTask}>
+          Add Task
+        </button>
 
-      <hr />
+        <hr />
 
-      {/* Edit Task */}
-      {editingTaskId && (
-        <div>
-          <h3>Edit Task</h3>
+        {/* Edit Task */}
+        {editingTaskId && (
+          <div>
+            <h3>Edit Task</h3>
 
-          <input
-            placeholder="Title"
-            value={editTitle}
-            onChange={(e) => setEditTitle(e.target.value)}
-          />
-          <br />
+            <input
+              placeholder="Title"
+              value={editTitle}
+              onChange={(e) => setEditTitle(e.target.value)}
+            />
+            <br />
 
-          <input
-            placeholder="Description"
-            value={editDescription}
-            onChange={(e) => setEditDescription(e.target.value)}
-          />
-          <br />
+            <input
+              placeholder="Description"
+              value={editDescription}
+              onChange={(e) => setEditDescription(e.target.value)}
+            />
+            <br />
 
-          <select
-            value={editStatus}
-            onChange={(e) => setEditStatus(e.target.value)}
-          >
-            <option value="PENDING">PENDING</option>
-            <option value="IN_PROGRESS">IN_PROGRESS</option>
-            <option value="COMPLETED">COMPLETED</option>
-          </select>
+            <select
+              value={editStatus}
+              onChange={(e) => setEditStatus(e.target.value)}
+            >
+              <option value="PENDING">PENDING</option>
+              <option value="IN_PROGRESS">IN_PROGRESS</option>
+              <option value="COMPLETED">COMPLETED</option>
+            </select>
 
-          <br />
+            <br />
 
-          <button onClick={updateTask}>Update</button>
-          <button onClick={() => setEditingTaskId(null)}>Cancel</button>
+            <button className="btn-primary" onClick={updateTask}>
+              Update
+            </button>
+            <button
+              className="btn-danger"
+              onClick={() => setEditingTaskId(null)}
+            >
+              Cancel
+            </button>
 
-          <hr />
-        </div>
-      )}
+            <hr />
+          </div>
+        )}
 
-      {/* Task List */}
-      <h3>My Tasks</h3>
+        {/* Task List */}
+        <h3>My Tasks</h3>
 
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id} style={{ marginBottom: "15px" }}>
-            <b>Title:</b> {task.title} <br />
-            <b>Description:</b> {task.description || "N/A"} <br />
-            <b>Status:</b> {task.status} <br />
-            <button onClick={() => startEdit(task)}>Edit</button>
-            <button onClick={() => deleteTask(task.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+        <ul>
+          {tasks.map((task) => (
+            <li className="task" key={task.id} style={{ marginBottom: "15px" }}>
+              <b>Title:</b> {task.title} <br />
+              <b>Description:</b> {task.description || "N/A"} <br />
+              <b>Status:</b> {task.status} <br />
+              <button className="btn-primary" onClick={() => startEdit(task)}>
+                Edit
+              </button>
+              <button
+                className="btn-danger"
+                onClick={() => deleteTask(task.id)}
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

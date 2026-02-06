@@ -36,3 +36,134 @@
     transform: rotate(360deg);
   }
 }
+
+/* ===== Global ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f9;
+  color: #222;
+}
+
+h2, h3 {
+  color: #0a3d62;
+  margin-bottom: 10px;
+}
+
+/* ===== Container ===== */
+.container {
+  width: 400px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Inputs ===== */
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #0a3d62;
+}
+
+/* ===== Buttons ===== */
+button {
+  padding: 8px 14px;
+  margin: 6px 4px 6px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: #0a3d62;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #074173;
+}
+
+.btn-danger {
+  background-color: #c0392b;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #a93226;
+}
+
+.btn-secondary {
+  background-color: #555;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #333;
+}
+
+/* ===== Links ===== */
+.link-btn {
+  background: none;
+  color: #0a3d62;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+/* ===== Error & Success ===== */
+.error {
+  color: #c0392b;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.success {
+  color: #27ae60;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* ===== Dashboard ===== */
+.dashboard {
+  width: 700px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.task b {
+  color: #0a3d62;
+}
+
+hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
