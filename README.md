@@ -48,18 +48,24 @@ cd auth-task-frontend
 ```
 
 Install dependencies:
-
+```
 npm install
+```
 
 Start the application:
-
+```
 npm start
+```
 
 Open browser and access:
-
+```
 http://localhost:3000
+```
 
+---
 🖥️ Application Flow (How to Use)
+
+
 1️⃣ Login Page
 
 Default landing page
@@ -68,6 +74,7 @@ Existing users can log in using email and password
 
 Invalid credentials show error messages from backend
 
+---
 2️⃣ Register Page
 
 New users can register with:
@@ -82,6 +89,7 @@ Password
 
 On successful registration, user is redirected back to Login
 
+---
 3️⃣ Dashboard (Protected)
 
 Accessible only after successful login
@@ -96,6 +104,7 @@ USER → sees only own tasks
 
 ADMIN → sees all users’ tasks
 
+---
 4️⃣ Task Operations
 
 Create a new task (title, description, status)
@@ -106,6 +115,7 @@ Delete task
 
 UI updates automatically after each operation
 
+---
 5️⃣ Logout
 
 Clears JWT token
@@ -122,79 +132,8 @@ On 401 Unauthorized, user is logged out automatically
 
 All authorization rules are enforced by the backend
 
-Install dependencies:
 
-npm install
-
-Start the application:
-
-npm start
-
-Open browser and access:
-
-http://localhost:3000
-
-🖥️ Application Flow (How to Use)
-1️⃣ Login Page
-
-Default landing page
-
-Existing users can log in using email and password
-
-Invalid credentials show error messages from backend
-
-2️⃣ Register Page
-
-New users can register with:
-
-Name
-
-Email
-
-Phone Number
-
-Password
-
-On successful registration, user is redirected back to Login
-
-3️⃣ Dashboard (Protected)
-
-Accessible only after successful login
-
-JWT token is stored in browser localStorage
-
-Displays task list returned by backend
-
-Role-based behavior:
-
-USER → sees only own tasks
-
-ADMIN → sees all users’ tasks
-
-4️⃣ Task Operations
-
-Create a new task (title, description, status)
-
-Edit existing task
-
-Delete task
-
-UI updates automatically after each operation
-
-5️⃣ Logout
-
-Clears JWT token
-
-Redirects back to Login page
-
-🔐 Authentication & Security
-
-JWT token is stored in localStorage
-
-Token is automatically attached to API requests using Axios interceptors
-
-On 401 Unauthorized, user is logged out automatically
-
+--------
 All authorization rules are enforced by the backend
 
 # Project Structure
