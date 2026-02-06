@@ -4,21 +4,34 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
-  const [page, setPage] = useState("login");
+  const [currentPage, setCurrentPage] = useState("login");
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    setPage("login");
-  };
-
+  // If token exists, always show dashboard
   if (localStorage.getItem("token")) {
-    return <Dashboard onLogout={logout} />;
+    return (
+      <Dashboard
+        onLogout={() => {
+          localStorage.removeItem("token");
+          setCurrentPage("login");
+        }}
+      />
+    );
   }
 
-  return page === "login" ? (
-    <Login onLogin={() => setPage("dashboard")} />
-  ) : (
-    <Register onRegister={() => setPage("login")} />
+  // If not logged in
+  return (
+    <>
+      {currentPage === "login" && (
+        <Login
+          goToRegister={() => setCurrentPage("register")}
+          onLoginSuccess={() => setCurrentPage("dashboard")}
+        />
+      )}
+
+      {currentPage === "register" && (
+        <Register goToLogin={() => setCurrentPage("login")} />
+      )}
+    </>
   );
 }
 

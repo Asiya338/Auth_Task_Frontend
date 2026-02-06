@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import api from "../services/api";
 
-function Login({ onLogin }) {
+function Login({ goToRegister, onLoginSuccess }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async () => {
+  const login = async () => {
     try {
       const res = await api.post("/auth/login", {
         email,
@@ -14,7 +14,7 @@ function Login({ onLogin }) {
       });
 
       localStorage.setItem("token", res.data.accessToken);
-      onLogin();
+      onLoginSuccess();
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
@@ -34,9 +34,13 @@ function Login({ onLogin }) {
       />
       <br />
 
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={login}>Login</button>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <p style={{ color: "red" }}>{error}</p>
+
+      <p>
+        New user? <button onClick={goToRegister}>Register here</button>
+      </p>
     </div>
   );
 }

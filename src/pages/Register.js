@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import api from "../services/api";
 
-function Register({ onRegister }) {
+function Register({ goToLogin }) {
   const [form, setForm] = useState({});
   const [message, setMessage] = useState("");
 
@@ -9,7 +9,7 @@ function Register({ onRegister }) {
     try {
       await api.post("/auth/register", form);
       setMessage("Registration successful. Please login.");
-      onRegister();
+      setTimeout(goToLogin, 1500);
     } catch (err) {
       setMessage(err.response?.data?.message || "Registration failed");
     }
@@ -42,9 +42,16 @@ function Register({ onRegister }) {
       <br />
 
       <button onClick={register}>Register</button>
+
       <p>{message}</p>
+
+      <button onClick={goToLogin}>Back to Login</button>
     </div>
   );
 }
+
+const register = async () => {
+  console.log("Register button clicked");
+};
 
 export default Register;
